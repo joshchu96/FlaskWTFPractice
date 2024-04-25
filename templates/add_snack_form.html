@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Snack</title>
+</head>
+<body>
+    <h1> New Snack </h1>
+    <form  method="POST">
+        {% for field in form <!--loop over each field in the form instance of snack. -->
+            if field.widget.input_type != 'hidden' %} <!--w/o this you will get some csrf token appear on html -->
+             
+        <p>
+            {{field.label}} <!--the label or title for each input.-->
+            {{field}}  <!--this is each idv field shown in FlaskForm-->
+        </p>
+        {% endfor %}
+        <button> Submit 
+        </button>
+    </form>
+
+    
+</body>
+</html>
